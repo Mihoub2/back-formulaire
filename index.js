@@ -3,6 +3,8 @@ const formData = require("form-data");
 const Mailgun = require("mailgun.js");
 const mailgun = new Mailgun(formData);
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
 const mg = mailgun.client({
   username: "Mihoub",
   key: "process.env.API-KEY",
