@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const mg = mailgun.client({
   username: "Mihoub",
-  key: "process.env.APIKEY",
+  key: process.env.APIKEY,
 });
 
 const app = express();
@@ -19,9 +19,9 @@ app.post("/send-email", (req, res) => {
 
   try {
     mg.messages
-      .create("process.env.LIST", {
+      .create(process.env.LIST, {
         from: `${req.body.firstname} ${req.body.lastname} <${req.body.email}> `,
-        to: "process.env.MAIL",
+        to: process.env.MAIL,
         subject: req.body.subject,
         text: req.body.message,
       })
