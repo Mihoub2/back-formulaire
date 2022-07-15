@@ -5,7 +5,7 @@ const mailgun = new Mailgun(formData);
 const cors = require("cors");
 const mg = mailgun.client({
   username: "Mihoub",
-  key: "09caf4c5d3ea944a9f75ab7fdaa77a2a-18e06deb-ef754876",
+  key: "process.env.API-KEY",
 });
 
 const app = express();
@@ -17,9 +17,9 @@ app.post("/send-email", (req, res) => {
 
   try {
     mg.messages
-      .create("sandbox999e13d74f6d4fce8d2eef2d44360a93.mailgun.org", {
+      .create("process.env.LIST", {
         from: `${req.body.firstname} ${req.body.lastname} <${req.body.email}> `,
-        to: "debache.mihoub@gmail.com",
+        to: "process.env.MAIL",
         subject: req.body.subject,
         text: req.body.message,
       })
