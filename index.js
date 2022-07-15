@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const mg = mailgun.client({
   username: "Mihoub",
-  key: "process.env.API-KEY",
+  key: "process.env.APIKEY",
 });
 
 const app = express();
